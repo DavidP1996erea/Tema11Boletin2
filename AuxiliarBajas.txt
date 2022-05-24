@@ -1,4 +1,2 @@
 David,Perea,1024f,5,direccion1
-Juan,Alberto,2524B,8,direccion2
 Javier,Sequera,32541H,4,direccion3
-Fernando,Juan,1242J,9,direccion4

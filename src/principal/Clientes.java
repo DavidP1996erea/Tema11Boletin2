@@ -2,7 +2,7 @@ package principal;
 
 import java.io.*;
 
-public class Clientes {
+public class Clientes implements Comparable <Clientes>{
 
 
     private String nombre;
@@ -20,6 +20,9 @@ public class Clientes {
         setDireccion(this.direccion=direccion);
     }
 
+    public Clientes(){
+
+    }
 
     public static void altaCliente(File fichero, Clientes clientes){
 
@@ -108,5 +111,19 @@ public class Clientes {
     @Override
     public String toString() {
         return nombre +"," + apellidos + "," + CIF + "," + categoria + "," + direccion + "\n";
+    }
+
+    @Override
+    public int compareTo(Clientes clienteB) {
+
+        int estado = -1;
+
+        if(this.CIF == clienteB.CIF){
+            estado=0;
+        }else if(Integer.parseInt(this.CIF.substring(0,4)) > Integer.parseInt(clienteB.CIF.substring(0,4)) ){
+            estado=1;
+        }
+
+        return estado;
     }
 }

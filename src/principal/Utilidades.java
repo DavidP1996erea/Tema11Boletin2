@@ -184,71 +184,145 @@ public class Utilidades{
     public static void realizarModificaciones(File clientes, File modificaciones){
 
         BufferedWriter bw = null;
-        Scanner sc=null;
-        Scanner sx=null;
-        Scanner sv=null;
-        String codigo;
-        String codigo2;
-        String codigo3;
-        String parte[];
-        String parte2[];
-        String parte3[];
+        Scanner scModificaciones=null;
+        Scanner scClientes=null;
+        Scanner scAuxiliar=null;
+        String cadenaMoficiaciones;
+        String cadenaClientes;
+        String cadenaAuxiliar;
+        String arrayModificaciones [];
+        String arrayClientes [];
+        String arrayAuxiliar [];
         String auxiliar = "Auxiliar.txt";
         try {
 
             bw = new BufferedWriter((new FileWriter(auxiliar, true)));
 
-            sc = new Scanner(modificaciones);
+            scModificaciones = new Scanner(modificaciones);
 
-            while (sc.hasNextLine()){
+            while (scModificaciones.hasNextLine()){
 
-                codigo=sc.nextLine();
-                parte = codigo.split(",");
+                cadenaMoficiaciones=scModificaciones.nextLine();
+                arrayModificaciones = cadenaMoficiaciones.split(",");
 
-                sx = new Scanner(clientes);
+                scClientes = new Scanner(clientes);
 
-                while (sx.hasNextLine()){
+                while (scClientes.hasNextLine()){
 
-                    codigo2=sx.nextLine();
-                    parte2=codigo2.split(",");
+                    cadenaClientes=scClientes.nextLine();
+                    arrayClientes=cadenaClientes.split(",");
 
-                    if(parte2[2].equals(parte[2])){
+                    if(arrayClientes[2].equals(arrayModificaciones[2])){
 
-                            bw.write(codigo + "\n");
-                    }else{
-
-                        sv= new Scanner(new File(auxiliar));
-
-                        while (sv.hasNextLine()){
-
-                            codigo3= sv.nextLine();
-                            parte3=codigo3.split(",");
-
-                            if(!parte2[2].equals(parte3[2])){
-
-                                bw.write(codigo2 + "\n");
-                            }
-
-                        }
-
+                            bw.write(cadenaMoficiaciones + "\n");
+                    }else {
+                            bw.write(cadenaClientes + "\n");
                     }
-                }
-                sx.close();
 
+                }
+                scClientes.close();
             }
 
             bw.close();
 
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+            }
 
+
+
+    }
+
+
+    public static void insertarBajaCliente(File fichero, Clientes clientes){
+
+        BufferedWriter bw = null;
+
+        try {
+            bw = new BufferedWriter(new FileWriter(fichero, true));
+            bw.write(clientes.toString());
+
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+
+            try {
+                bw.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        }
+    }
+
+
+    public static void realizarBajas(File clientes, File bajas){
+
+        BufferedWriter bw = null;
+        Scanner scBajas=null;
+        Scanner scClientes=null;
+
+        String cadenaBajas;
+        String cadenaClientes;
+
+        String arrayBajas [];
+        String arrayClientes [];
+
+        String auxiliar = "AuxiliarBajas.txt";
+        try {
+
+            bw = new BufferedWriter((new FileWriter(auxiliar, true)));
+
+            scBajas = new Scanner(bajas);
+
+            while (scBajas.hasNextLine()){
+
+                cadenaBajas=scBajas.nextLine();
+                arrayBajas = cadenaBajas.split(",");
+
+                scClientes = new Scanner(clientes);
+
+                while (scClientes.hasNextLine()){
+
+                    cadenaClientes=scClientes.nextLine();
+                    arrayClientes=cadenaClientes.split(",");
+
+                    if(!(arrayClientes[2].equals(arrayBajas[2]))){
+
+                        bw.write(cadenaClientes + "\n");
+                    }
+
+                }
+                scClientes.close();
+            }
+
+            bw.close();
 
         } catch (IOException e) {
             System.out.println(e);
         } finally {
         }
 
-
-
     }
+
+    public static Clientes transformarAObjeto(String registro){
+
+
+        Clientes clienteNuevo;
+
+        String [] arrayRegistro;
+
+        arrayRegistro = registro.split(",");
+
+        clienteNuevo = new Clientes(arrayRegistro[0], arrayRegistro[1], arrayRegistro[2],
+                Integer.parseInt(arrayRegistro[3]), arrayRegistro[4]);
+
+        return clienteNuevo;
+    }
+
+
+
+
 
 
 }

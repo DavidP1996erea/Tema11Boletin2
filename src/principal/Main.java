@@ -27,7 +27,8 @@ public class Main {
             //System.out.println(buscarElementoPorApellido(fichero, "Sequera"));
             //consultarElementoPorCif(fichero, "2524B");
             //System.out.println(buscarElementoPorCif(fichero, "2524B"));
-            insertarModificacionCliente(fichero2, clientes3);
+            //insertarModificacionCliente(fichero2, clientes3);
+            realizarModificaciones(fichero, fichero2);
         }catch (Exception e){
             System.out.println("Error");
         }

@@ -181,5 +181,49 @@ public class Utilidades{
     }
 
 
+    public static void realizarModificaciones(File clientes, File modificaciones){
+
+      /*  BufferedReader br = null;
+        BufferedReader br2 = null;
+        BufferedWriter bw = null;*/
+        Scanner sc=null;
+        Scanner sx=null;
+        String parte[];
+        String parte2[];
+        String auxiliar = "Auxiliar.txt";
+        try {
+
+            /*br = new BufferedReader(new FileReader(modificaciones));
+            br2 = new BufferedReader(new FileReader(clientes));
+            bw = new BufferedWriter((new FileWriter(auxiliar, true)));*/
+
+            sc = new Scanner(modificaciones);
+
+            while (sc.hasNextLine()){
+                parte = sc.nextLine().split(",");
+
+                sx = new Scanner(clientes);
+                while (sx.hasNextLine()){
+                    parte2=sx.nextLine().split(",");
+
+                    if(parte2[2].equals(parte[2])){
+                        System.out.println("Hola");;
+                    }
+                }
+                sx.close();
+
+            }
+
+
+
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+        }
+
+
+
+    }
+
 
 }

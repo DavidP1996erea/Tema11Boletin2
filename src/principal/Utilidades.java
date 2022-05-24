@@ -183,36 +183,61 @@ public class Utilidades{
 
     public static void realizarModificaciones(File clientes, File modificaciones){
 
-      /*  BufferedReader br = null;
-        BufferedReader br2 = null;
-        BufferedWriter bw = null;*/
+        BufferedWriter bw = null;
         Scanner sc=null;
         Scanner sx=null;
+        Scanner sv=null;
+        String codigo;
+        String codigo2;
+        String codigo3;
         String parte[];
         String parte2[];
+        String parte3[];
         String auxiliar = "Auxiliar.txt";
         try {
 
-            /*br = new BufferedReader(new FileReader(modificaciones));
-            br2 = new BufferedReader(new FileReader(clientes));
-            bw = new BufferedWriter((new FileWriter(auxiliar, true)));*/
+            bw = new BufferedWriter((new FileWriter(auxiliar, true)));
 
             sc = new Scanner(modificaciones);
 
             while (sc.hasNextLine()){
-                parte = sc.nextLine().split(",");
+
+                codigo=sc.nextLine();
+                parte = codigo.split(",");
 
                 sx = new Scanner(clientes);
+
                 while (sx.hasNextLine()){
-                    parte2=sx.nextLine().split(",");
+
+                    codigo2=sx.nextLine();
+                    parte2=codigo2.split(",");
 
                     if(parte2[2].equals(parte[2])){
-                        System.out.println("Hola");;
+
+                            bw.write(codigo + "\n");
+                    }else{
+
+                        sv= new Scanner(new File(auxiliar));
+
+                        while (sv.hasNextLine()){
+
+                            codigo3= sv.nextLine();
+                            parte3=codigo3.split(",");
+
+                            if(!parte2[2].equals(parte3[2])){
+
+                                bw.write(codigo2 + "\n");
+                            }
+
+                        }
+
                     }
                 }
                 sx.close();
 
             }
+
+            bw.close();
 
 
 

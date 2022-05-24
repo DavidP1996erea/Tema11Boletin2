@@ -24,7 +24,7 @@ public class Main {
           listaClientes.add(new Clientes("David", "Perea", "32541H", 5, "direccion1")) ;
           listaClientes.add( new Clientes("Juan", "Alberto", "25244B", 8, "direccion2"));
           listaClientes.add( new Clientes("Javier", "Sequera", "12345U", 4, "direccion3"));
-          listaClientes.add(transformarAObjeto("Fernando,Juan,1242J,9,direccion4"));
+          listaClientes.add(transformarAObjeto("Fernando,Juan,12342J,9,direccion4"));
           File fichero;
           File fichero2;
           File fichero3;
@@ -40,10 +40,11 @@ public class Main {
             //realizarModificaciones(fichero, fichero2);
             //insertarBajaCliente(fichero3, listaClientes.get(0));
             //realizarBajas(fichero, fichero3);
+            altaClienteOrdenado(fichero, transformarAObjeto("Laura,Gonzalez,28452J,1,direccion5"));
+
 
             Collections.sort(listaClientes);
-
-
+            ordenarFichero(fichero);
         }catch (Exception e){
             System.out.println("Error");
         }

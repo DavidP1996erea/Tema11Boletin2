@@ -3,6 +3,8 @@ package principal;
 import java.io.*;
 import java.util.Scanner;
 
+import static principal.Main.listaClientes;
+
 public class Utilidades{
 
 
@@ -322,7 +324,113 @@ public class Utilidades{
 
 
 
+    public static void ordenarFichero(File fichero){
+
+        BufferedWriter bw = null;
+
+        try {
+            bw = new BufferedWriter(new FileWriter(fichero));
+
+            for (Clientes e : listaClientes){
+
+                bw.write(e.toString());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+
+            try {
+                bw.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        }
+
+    }
+
+
+    public static void altaClienteOrdenado(File fichero, Clientes cliente){
+
+        listaClientes.add(cliente);
+
+        BufferedWriter bw = null;
+
+        try {
+            bw = new BufferedWriter(new FileWriter(fichero));
+
+            for (Clientes e : listaClientes){
+
+                bw.write(e.toString());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+
+            try {
+                bw.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        }
+
+    }
+
+
+/*
+    public static void modificarElemento(File clientes, String registroViejo, Clientes clienteNuevo){
+
+        BufferedWriter bw = null;
+        Scanner scModificaciones=null;
+        Scanner scClientes=null;
+        Scanner scAuxiliar=null;
+        String cadenaMoficiaciones;
+        String cadenaClientes;
+        String cadenaAuxiliar;
+        String arrayModificaciones [];
+        String arrayClientes [];
+        String arrayAuxiliar [];
+        String auxiliar = "Auxiliar.txt";
+        try {
+
+            bw = new BufferedWriter((new FileWriter(auxiliar, true)));
+
+            scModificaciones = new Scanner(modificaciones);
+
+            while (scModificaciones.hasNextLine()){
+
+                cadenaMoficiaciones=scModificaciones.nextLine();
+                arrayModificaciones = cadenaMoficiaciones.split(",");
+
+                scClientes = new Scanner(clientes);
+
+                while (scClientes.hasNextLine()){
+
+                    cadenaClientes=scClientes.nextLine();
+                    arrayClientes=cadenaClientes.split(",");
+
+                    if(arrayClientes[2].equals(arrayModificaciones[2])){
+
+                        bw.write(cadenaMoficiaciones + "\n");
+                    }else {
+                        bw.write(cadenaClientes + "\n");
+                    }
+
+                }
+                scClientes.close();
+            }
+
+            bw.close();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+        }
 
 
 
+    }
+
+*/
 }

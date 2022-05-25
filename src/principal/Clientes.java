@@ -24,6 +24,13 @@ public class Clientes implements Comparable <Clientes>{
 
     }
 
+
+    /**
+     *
+     * @param fichero
+     * @param clientes
+     */
+
     public static void altaCliente(File fichero, Clientes clientes){
 
         BufferedWriter bw = null;
@@ -113,7 +120,8 @@ public class Clientes implements Comparable <Clientes>{
         return nombre +"," + apellidos + "," + CIF + "," + categoria + "," + direccion + "\n";
     }
 
-    @Override
+
+  @Override
     public int compareTo(Clientes clienteB) {
 
         int estado = -1;
@@ -126,4 +134,6 @@ public class Clientes implements Comparable <Clientes>{
 
         return estado;
     }
+
+
 }

@@ -1,10 +1,7 @@
 package principal;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static principal.Clientes.altaCliente;
 import static principal.Utilidades.*;
@@ -32,7 +29,7 @@ public class Main {
             fichero=new File("Clientes.txt");
             fichero2=new File("Modificaciones.txt");
             fichero3=new File("Bajas.txt");
-            //consultarElementoPorApellidos(fichero,"Perea");
+            consultarElementoPorApellidos(fichero,"Perea");
             //System.out.println(buscarElementoPorApellido(fichero, "Sequera"));
             //consultarElementoPorCif(fichero, "2524B");
             //System.out.println(buscarElementoPorCif(fichero, "2524B"));
@@ -40,11 +37,15 @@ public class Main {
             //realizarModificaciones(fichero, fichero2);
             //insertarBajaCliente(fichero3, listaClientes.get(0));
             //realizarBajas(fichero, fichero3);
-            altaClienteOrdenado(fichero, transformarAObjeto("Laura,Gonzalez,28452J,1,direccion5"));
+            //altaClienteOrdenado(fichero, transformarAObjeto("Laura,Gonzalez,28452J,1,direccion5"));
+            //listaClientes.add(transformarAObjeto("Juan,dejame,25244B,8,direccion2"));
+            //modificarElemento(fichero, "Juan,Alberto,25244B,8,direccion2", listaClientes.get(5));
 
 
-            Collections.sort(listaClientes);
-            ordenarFichero(fichero);
+           // bajaElemento(fichero, "Laura,Gonzalez,28452J,1,direccion5" );
+
+          Collections.sort(listaClientes);
+          ordenarFichero(fichero);
         }catch (Exception e){
             System.out.println("Error");
         }

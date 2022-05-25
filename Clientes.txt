@@ -1,5 +1,4 @@
 Fernando,Juan,12342J,9,direccion4
 Javier,Sequera,12345U,4,direccion3
 Juan,Alberto,25244B,8,direccion2
-Laura,Gonzalez,28452J,1,direccion5
 David,Perea,32541H,5,direccion1

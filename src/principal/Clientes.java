@@ -25,11 +25,6 @@ public class Clientes implements Comparable <Clientes>{
     }
 
 
-    /**
-     *
-     * @param fichero
-     * @param clientes
-     */
 
     public static void altaCliente(File fichero, Clientes clientes){
 

@@ -440,7 +440,8 @@ public class Utilidades {
     }
 
     /**
-     *
+     * Al igual que el otro método, se compara el split del String registro con los diferentes registros del fichero,
+     * y copia todos los registros menos el que coincida.
      * @param fichero
      * @param registro
      */
